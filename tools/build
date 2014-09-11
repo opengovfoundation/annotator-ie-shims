@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+var compressor = require('node-minify');
+
+// Create bundle
+new compressor.minify({
+    type: 'gcc', // Using Google Closure
+    fileIn: [
+    	'src/annotator-ie.js',
+    	'node_modules/JSON2/json2.js',
+    	'node_modules/es5-shim/es5-shim.js',
+    	'node_modules/rangy/lib/rangy-core.js'
+    ],
+    fileOut: 'pkg/annotator-ie-bundle.min.js',
+    callback: function(err, min){
+        console.log(err);
+        console.log(min);
+    }
+});
+
+// Create minified shim
+new compressor.minify({
+    type: 'gcc', // Using Google Closure
+    fileIn: 'src/annotator-ie.js',
+    fileOut: 'pkg/annotator-ie.min.js',
+    callback: function(err, min){
+        console.log(err);
+        console.log(min);
+    }
+});
