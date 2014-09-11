@@ -51,18 +51,18 @@ Alternately, you can use the prepared bundle (currently ~65k) of all of these sc
 When running the unit tests for `Annotator` or `xpath-range`, you'll need
 to do a few extra things to make them IE8-compatible:
 
-* Replace the `chai` package with `assertive-chai` and the `assert` library in your
+Replace the `chai` package with `assertive-chai` and the `assert` library in your
 `package.json` file (or just install these manually via `npm`).
 
     "assert": "git://github.com/Jxck/assert.git#master",
     "assertive-chai": "~1.0.0",
 
-* Replace `chai` with those libraries in your test runner:
+Replace `chai` with those libraries in your test runner:
 
     <script src="/node_modules/assert/assert.js"></script>
     <script src="/node_modules/assertive-chai/assertive-chai.js"></script>
 
-* Add the `sinon-ie.js` library that is bundled with sinon:
+Add the `sinon-ie.js` library that is bundled with sinon:
 
     <script src="/node_modules/sinon/pkg/sinon.js"></script>
     <!--[if lt IE 9]>
